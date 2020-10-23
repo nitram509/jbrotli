@@ -40,6 +40,18 @@ If you want to build the 32bit version on Windows, you also need the 32bit JDK i
 and to setup different ENV variables for your Windows SDK (or Visual Studio).
 See build.bat files for more details.
 
+#### fetch the brotli source, via git module
+
+The original sources from brotli project are used.
+
+```bash
+$> git submodule init
+Submodule 'brotli' (https://github.com/google/brotli.git) registered for path 'brotli'
+
+$> git submodule update
+Cloning into './brotli'...
+Submodule path 'brotli': checked out '66c14517cf8afcc1a1649a7833ac789366eb0b51'
+```
 
 #### automatically for your platform
 
@@ -109,6 +121,11 @@ This [fly](http://concourse.ci/fly-cli.html) tool is required to work with the p
 Please follow the Concourse CI's [Getting Started Guide](http://concourse.ci/getting-started.html)
 to learn how to install this tool.
 
+Example running Concourse CI locally
+```
+fly -t jbrotli login -c http://localhost:8080
+```
+
 #### 3. Prepare AWS S3 bucket
 
 The pipeline artifacts are stored on Amazon S3 buckets.
@@ -118,7 +135,7 @@ https://console.aws.amazon.com/s3/home
 
 #### 4. Upload pipeline
 ```
-fly set-pipeline -p jbrotli -c ./pipeline.yml --var "s3-bucket-name=<YOUR_BUCKET>" --var "s3-access-key-id=<YOUR_KEY>" --var "s3-secret-access-key=<YOUR_SECRET>" --var "s3-region-name=<REGION>"
+fly -t jbrotli set-pipeline -p jbrotli -c ./pipeline.yml --var "s3-bucket-name=<YOUR_BUCKET>" --var "s3-access-key-id=<YOUR_KEY>" --var "s3-secret-access-key=<YOUR_SECRET>" --var "s3-region-name=<REGION>"
 ```
 
 #### 5. Open Web UI and run pipeline

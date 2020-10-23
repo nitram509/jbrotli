@@ -3,7 +3,7 @@ resources:
   - name: git-repo
     type: git
     source:
-      uri: https://github.com/MeteoGroup/jbrotli.git
+      uri: https://github.com/nitram509/jbrotli.git
       branch: master
 
   - name: s3-jbrotli-releases
