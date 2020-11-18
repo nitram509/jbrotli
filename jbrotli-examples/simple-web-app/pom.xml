@@ -15,7 +15,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     
     <version.jbrotli.native>0.6.0-SNAPSHOT</version.jbrotli.native>
-    <version.tomcat-embed>8.0.32</version.tomcat-embed>
+    <version.tomcat-embed>8.5.2</version.tomcat-embed>
   </properties>
 
   <dependencies>
